@@ -213,6 +213,7 @@ const StateContextProvider = (props: any) => {
   // Call refresh timezone offset function on location change if zoneId not already set
   useEffect(() => {
     if (state.location.latitude && !state.zoneId) {
+      console.log('init useeffect refreshtz');
       refreshTzOffset();
     }
     // eslint-disable-next-line
@@ -221,6 +222,7 @@ const StateContextProvider = (props: any) => {
   // Refresh timezone offset every 5 seconds
   useEffect(() => {
     const tzInterval = setInterval(() => {
+      console.log('interval refreshtz');
       refreshTzOffset();
     }, 5000);
     return () => {
