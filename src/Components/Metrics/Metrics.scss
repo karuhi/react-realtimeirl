@@ -14,6 +14,7 @@
 
 .compass-icon {
   display: inline-flex;
+  margin-bottom: 10px;
   & svg {
     overflow: visible;
     width: 1.25em;
@@ -24,21 +25,26 @@
 }
 
 .distance-text {
+  margin-bottom: -5px;
   text-align: right;
 }
 
 .heart-text {
+  margin-bottom: -5px;
   text-align: right;
 }
 
 .heading-text {
+  margin-bottom: -5px;
   text-align: right;
 }
 
 .speed-text {
+  margin-bottom: -5px;
   text-align: right;
 }
 
 .altitude-text {
+  margin-bottom: -5px;
   text-align: right;
 }
