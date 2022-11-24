@@ -12,7 +12,7 @@ import './Weather.scss';
 const Weather = () => {
   const [state] = useContext(stateContext);
 
-  const icon = `assets/${state?.locationData?.weather?.[0]?.icon}.svg`;
+  const icon = `assets/${state?.locationData?.current?.weather?.[0]?.icon}.svg`;
   const max = `assets/cloud-arrow-up.svg`
   const min = `assets/cloud-arrow-down.svg`
 
@@ -21,8 +21,8 @@ const Weather = () => {
       {!isEmpty(state.locationData) && (
         <>
         <div className="conditions">
-          {state.locationData.weather[0].main} /{' '}
-          {state.locationData.weather[0].description}
+          {state.locationData.current.weather[0].main} /{' '}
+          {state.locationData.current.weather[0].description}
         </div>
           <div className="min-max">
           <div className="weather-icon">
@@ -46,7 +46,7 @@ const Weather = () => {
             />
             </div>
             &nbsp;
-            {state.imperial ? `${(((state.locationData.main.temp_min - 273.15) * 9 / 5 ) + 32).toFixed(1)} °F ` : `${(state.locationData.main.temp_min - 273.15).toFixed(1)} °C `}
+            {state.imperial ? `${(((state.locationData.daily[0].temp.min) * 9 / 5 ) + 32).toFixed(1)} °F ` : `${(state.locationData.daily[0].temp.min).toFixed(1)} °C `}
             -&nbsp;
             <div className="max-icon">
             <SvgLoader 
@@ -58,12 +58,12 @@ const Weather = () => {
             />
             </div>
             &nbsp;
-            {state.imperial ? `${(((state.locationData.main.temp_max - 273.15) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.main.temp_max - 273.15).toFixed(1)} °C`}
+            {state.imperial ? `${(((state.locationData.daily[0].temp.max) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.daily[0].temp.max).toFixed(1)} °C`}
           </div>
           <div className="current-weather">
-            Current: {state.imperial ? `${(((state.locationData.main.temp - 273.15) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.main.temp - 273.15).toFixed(1)} °C`}
+            Current: {state.imperial ? `${(((state.locationData.current.temp) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.current.temp).toFixed(1)} °C`}
             <br />
-            Feels like: {state.imperial ? `${(((state.locationData.main.feels_like - 273.15) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.main.feels_like - 273.15).toFixed(1)} °C`}
+            Feels like: {state.imperial ? `${(((state.locationData.current.feels_like) * 9 / 5 ) + 32).toFixed(1)} °F` : `${(state.locationData.current.feels_like).toFixed(1)} °C`}
         </div>
         </>)}
       </React.Suspense>
