@@ -13,7 +13,6 @@ const Neighbourhood = () => {
 
   const [show, setShow] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
-  const [counter, setCounter] = useState(0);
   const [pendingVisible, setPendingVisible] = useState(false);
 
   const springConfig = { mass: 4, tension: 400, friction: 80, velocity: 10 };
@@ -37,20 +36,10 @@ const Neighbourhood = () => {
   }, [timeLeft]);
 
   useEffect(() => {
-    if (timeLeft > 10) {
-      setCounter(0);
-    } else if (timeLeft <= 10 && timeLeft > 5) {
-      setCounter(1);
-    } else {
-      setCounter(2);
-    }
-  }, [timeLeft, counter]);
-
-  useEffect(() => {
     if (!pendingVisible) {
       if (!timeLeft && !pendingVisible) {
         setPendingVisible(true);
-        setTimeLeft(15);
+        setTimeLeft(20);
       }
     }
   }, [pendingVisible, timeLeft]);
@@ -59,7 +48,7 @@ const Neighbourhood = () => {
     if (pendingVisible && !timeLeft) {
       setPendingVisible(true);
       setShow(true);
-      setTimeLeft(30);
+      setTimeLeft(40);
     }
   }, [pendingVisible, timeLeft]);
 
