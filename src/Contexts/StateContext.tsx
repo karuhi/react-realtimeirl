@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react';
 
-import HandleStreamElements from '../Handlers/HandleStreamElements';
-import HandleHeading from '../Handlers/HandleHeading';
-import HandleDistance from '../Handlers/HandleDistance';
-import HandleWeather from '../Handlers/HandleWeather';
-import HandleAltitude from '../Handlers/HandleAltitude';
-import HandleHeartrate from '../Handlers/HandleHeartrate';
+import HandleStreamElements from 'Handlers/HandleStreamElements';
+import HandleHeading from 'Handlers/HandleHeading';
+import HandleDistance from 'Handlers/HandleDistance';
+import HandleWeather from 'Handlers/HandleWeather';
+import HandleAltitude from 'Handlers/HandleAltitude';
+import HandleHeartrate from 'Handlers/HandleHeartrate';
 import HandleNeighbourhood from 'Handlers/HandleNeighbourhood';
 import HandleLocation from 'Handlers/HandleLocation';
 import HandleSpeed from 'Handlers/HandleSpeed';
