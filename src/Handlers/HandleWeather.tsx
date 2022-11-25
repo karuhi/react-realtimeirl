@@ -6,7 +6,7 @@ const HandleWeather = (props: any) => {
   const getWeather = () => {
     state.debug && console.log('weather refresh');
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${state.location.latitude}&lon=${state.location.longitude}&exclude=minutely,hourly,alerts&units=metric&appid=${state.weatherKey}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${state.location.latitude}&lon=${state.location.longitude}&exclude=minutely,hourly,alerts&units=metric&appid=${state.weatherKey}`
     )
       .then((response) => response.json())
       .then((data) => {
