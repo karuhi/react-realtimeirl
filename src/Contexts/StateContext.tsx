@@ -19,7 +19,7 @@ let debug = false;
 const queryParams = new URLSearchParams(window.location.search);
 
 mapboxKey = process.env.REACT_APP_MAPBOX_KEY || queryParams.get('mapboxKey') || ''; // prettier-ignore
-mapZoom = queryParams.get('zoom') || '13'; // prettier-ignore
+mapZoom = queryParams.get('zoom') || '14'; // prettier-ignore
 pullKey = process.env.REACT_APP_PULL_KEY || queryParams.get('pullKey') || ''; // prettier-ignore
 timezoneKey = process.env.REACT_APP_TIMEZONE_KEY || queryParams.get('timezoneKey') || ''; // prettier-ignore
 weatherKey = process.env.REACT_APP_OPENWEATHER_KEY || queryParams.get('weatherKey') || ''; // prettier-ignore
