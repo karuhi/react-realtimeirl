@@ -1,5 +1,6 @@
 import { stateContext } from 'Contexts/StateContext';
 import { useContext } from 'react';
+import { ReactFitty } from 'react-fitty';
 
 import './Timedate.scss';
 
@@ -7,15 +8,7 @@ const Timedate = () => {
   const [state] = useContext(stateContext);
   return (
     <div className="time-container">
-      {[...state.datetime].map((char, i) =>
-        char === ':' ? (
-          char
-        ) : (
-          <div className={`time ${i}`} key={i}>
-            {char}
-          </div>
-        )
-      )}
+      <ReactFitty className="time">{state.datetime}</ReactFitty>
     </div>
   );
 };
