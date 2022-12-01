@@ -9,13 +9,15 @@
 Firstly, you'll need to create a .env.local file in the root of this project directory, into which you'll need to insert:
 
 ```
-REACT_APP_TIMEZONE_KEY = 'INSERT TIMEZONEDB API KEY HERE'
-REACT_APP_LEAFLET_PROVIDER_KEY = 'INSERT LEAFLET PROVIDER KEY HERE' -- used for themes requiring API access keys, these are listed in the relevant section below
-REACT_APP_MAPBOX_KEY = 'INSERT MAPBOX API KEY HERE'
-REACT_APP_OPENWEATHER_KEY = 'INSERT OPENWEATHERMAP API KEY HERE'
-REACT_APP_PULL_KEY = 'INSERT REALTIMEIRL PULL KEY HERE'
-REACT_APP_STREAMELEMENTS_KEY = 'INSERT STREAMELEMENTS API KEY HERE' -- Optional - only required if you want to use the StreamElements integration
+REACT_APP_TIMEZONE_KEY = INSERTTIMEZONEDBAPIKEYHERE
+REACT_APP_LEAFLET_PROVIDER_KEY = INSERTLEAFLETPROVIDERKEYHERE -- used for themes requiring API access keys, these are listed in the relevant section below
+REACT_APP_MAPBOX_KEY = INSERTMAPBOXAPIKEYHERE
+REACT_APP_OPENWEATHER_KEY = INSERTOPENWEATHERMAPAPIKEYHERE
+REACT_APP_PULL_KEY = INSERTREALTIMEIRLPULLKEYHERE
+REACT_APP_STREAMELEMENTS_KEY = INSERTSTREAMELEMENTSAPIKEYHERE -- Optional - only required if you want to use the StreamElements integration
 ```
+
+You can edit the .env.example file provided in the root of this project directory to include your API keys, and then rename it to .env.local
 
 ## Installation
 
