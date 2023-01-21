@@ -23,7 +23,6 @@ const OtherMetrics = () => {
     // eslint-disable-next-line
   }, [])
   const [state] = useContext(stateContext);
-  state.speed = 25;
   return (
     <div className="metrics-container" style={{display:metrics ? '' : 'none'}}>
       <div className="heading-text" style={{display:heading ? '' : 'none'}}>Heading:&nbsp;     
@@ -41,7 +40,7 @@ const OtherMetrics = () => {
       <div className="container">
         <div className="speed-text" style={{display:speed ? '' : 'none', paddingBottom: speedPad ? '8px' : ''}}>Speed: {state.imperial ? `${(state.speed / 1.609).toFixed()} mp/h` : `${(state.speed).toFixed()} km/h`}</div>
         <div className={`progress ${state.speed >= 40 ? "progress-infinite" : "progress-striped"}`}>
-          <div className={state.speed >= 40 ? "progress-bar3" : "progress-bar"} style={{ width: `${state.speed*2.5}%`}}></div>
+          <div className={state.speed >= 40 ? "progress-bar3" : "progress-bar"} style={{ width: `${state.speed < 40 ? state.speed*2.5 : 100}%`}}></div>
         </div>
       </div>
     </div>
