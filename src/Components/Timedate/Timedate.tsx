@@ -1,8 +1,8 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext } from "react";
-import { ReactFitty } from "react-fitty";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext } from 'react';
+import { ReactFitty } from 'react-fitty';
 
-import "./Timedate.scss";
+import './Timedate.scss';
 
 const Timedate = () => {
   const [state] = useContext(stateContext);

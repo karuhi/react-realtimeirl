@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from 'react-spring';
 
-import LatestCheer from "./LatestCheer";
-import LatestFollow from "./LatestFollow";
-import LatestSub from "./LatestSub";
-import LatestTip from "./LatestTip";
+import LatestCheer from './LatestCheer';
+import LatestFollow from './LatestFollow';
+import LatestSub from './LatestSub';
+import LatestTip from './LatestTip';
 
-import RecentCheer from "./RecentCheer";
-import RecentFollow from "./RecentFollow";
-import RecentSub from "./RecentSub";
-import RecentTip from "./RecentTip";
+import RecentCheer from './RecentCheer';
+import RecentFollow from './RecentFollow';
+import RecentSub from './RecentSub';
+import RecentTip from './RecentTip';
 
-import "./StreamElements.scss";
+import './StreamElements.scss';
 
 const StreamElements = () => {
   const [timeLeft, setTimeLeft] = useState(10);

@@ -1,23 +1,23 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { stateContext } from "Contexts/StateContext";
+import { useContext, useEffect, useRef, useState } from 'react';
+import { stateContext } from 'Contexts/StateContext';
 
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from 'react-leaflet';
 //@ts-ignore
-import { useMap } from "react-leaflet/hooks";
+import { useMap } from 'react-leaflet/hooks';
 
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression } from 'leaflet';
 
-import Timedate from "Components/Timedate/Timedate";
+import Timedate from 'Components/Timedate/Timedate';
 
-import themeChooser from "Functions/themeChooser";
+import themeChooser from 'Functions/themeChooser';
 
-import "./Map.scss";
+import './Map.scss';
 
 const queryParams: { [Value: string]: any } = new URLSearchParams(window.location.search); // prettier-ignore
 
-const attribution = parseInt(queryParams.get("attribution"));
-const mapEnabled = parseInt(queryParams.get("map"));
-const themeInput = queryParams.get("theme") || "";
+const attribution = parseInt(queryParams.get('attribution'));
+const mapEnabled = parseInt(queryParams.get('map'));
+const themeInput = queryParams.get('theme') || '';
 
 const leafletProviderKey = process.env.REACT_APP_LEAFLET_PROVIDER_KEY || queryParams.get('leafletProviderKey') || ''; // prettier-ignore
 

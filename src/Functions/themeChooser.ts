@@ -9,7 +9,7 @@ const themeChooser = (input: string, key: string) => {
       },
     },
     OpenStreetMap: {
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       options: {
         maxZoom: 19,
         attribution:
@@ -18,7 +18,7 @@ const themeChooser = (input: string, key: string) => {
       variants: {
         Mapnik: {},
         DE: {
-          url: "https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png",
+          url: 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
           options: {
             maxZoom: 18,
             attribution:
@@ -26,7 +26,7 @@ const themeChooser = (input: string, key: string) => {
           },
         },
         CH: {
-          url: "https://tile.osm.ch/switzerland/{z}/{x}/{y}.png",
+          url: 'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png',
           options: {
             maxZoom: 18,
             attribution:
@@ -34,7 +34,7 @@ const themeChooser = (input: string, key: string) => {
           },
         },
         France: {
-          url: "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
+          url: 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
           options: {
             maxZoom: 20,
             attribution:
@@ -42,14 +42,14 @@ const themeChooser = (input: string, key: string) => {
           },
         },
         HOT: {
-          url: "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+          url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
           options: {
             attribution:
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           },
         },
         BZH: {
-          url: "https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png",
+          url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
           options: {
             attribution:
               '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -58,7 +58,7 @@ const themeChooser = (input: string, key: string) => {
       },
     },
     OPNVKarte: {
-      url: "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png",
+      url: 'https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',
       options: {
         maxZoom: 18,
         attribution:
@@ -66,7 +66,7 @@ const themeChooser = (input: string, key: string) => {
       },
     },
     CyclOSM: {
-      url: "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+      url: 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
       options: {
         maxZoom: 20,
         attribution:
@@ -80,7 +80,7 @@ const themeChooser = (input: string, key: string) => {
           '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
         minZoom: 0,
         maxZoom: 22,
-        subdomains: "abcd",
+        subdomains: 'abcd',
         // Get your own Jawg access token here : https://www.jawg.io/lab/
         // NB : this is a demonstration key that comes with no guarantee
       },
@@ -92,7 +92,7 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
         Terrain: {
@@ -102,7 +102,7 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
         Sunny: {
@@ -112,7 +112,7 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
         Dark: {
@@ -122,7 +122,7 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
         Light: {
@@ -132,7 +132,7 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
         Matrix: {
@@ -142,46 +142,46 @@ const themeChooser = (input: string, key: string) => {
               '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
             minZoom: 0,
             maxZoom: 22,
-            subdomains: "abcd",
+            subdomains: 'abcd',
           },
         },
       },
     },
     Stamen: {
-      url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}",
+      url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}',
       options: {
         attribution:
           'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
           '<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; <br/>&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-        subdomains: "abcd",
+        subdomains: 'abcd',
         minZoom: 0,
         maxZoom: 20,
-        variant: "toner",
-        ext: "png",
+        variant: 'toner',
+        ext: 'png',
       },
       variants: {
         Toner: {
-          url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}",
+          url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}',
           options: {
             attribution:
               'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
               '<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; <br/>&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-            subdomains: "abcd",
+            subdomains: 'abcd',
             minZoom: 0,
             maxZoom: 20,
-            variant: "toner",
-            ext: "png",
+            variant: 'toner',
+            ext: 'png',
           },
         },
         Watercolor: {
-          url: "https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}",
+          url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}',
           options: {
             attribution:
               'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
               '<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; <br/>&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-            subdomains: "abcd",
-            ext: "jpg",
-            variant: "watercolor",
+            subdomains: 'abcd',
+            ext: 'jpg',
+            variant: 'watercolor',
             minZoom: 1,
             maxZoom: 16,
           },
@@ -190,20 +190,20 @@ const themeChooser = (input: string, key: string) => {
     },
   };
   let theme = {
-    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     options: {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 20,
     },
-    variant: "",
+    variant: '',
   };
   if (input) {
-    const inputArray: Array<string> = input.split(".");
+    const inputArray: Array<string> = input.split('.');
     if (inputArray.length > 1) {
       try {
         theme =
-          providers[inputArray[0] as keyof typeof providers]["variants"][
+          providers[inputArray[0] as keyof typeof providers]['variants'][
             inputArray[1]
           ];
       } catch (error) {
@@ -212,7 +212,7 @@ const themeChooser = (input: string, key: string) => {
     } else {
       try {
         theme = providers[inputArray[0] as keyof typeof providers];
-        theme.variant = "";
+        theme.variant = '';
       } catch (error) {
         return theme;
       }

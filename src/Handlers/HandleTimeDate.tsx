@@ -1,9 +1,9 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect } from 'react';
 
-import * as luxon from "luxon";
+import * as luxon from 'luxon';
 
-import isEmpty from "Functions/isEmpty";
+import isEmpty from 'Functions/isEmpty';
 
 const HandleTimeDate = (props: any) => {
   const [state, setState] = useContext(stateContext);
@@ -17,16 +17,16 @@ const HandleTimeDate = (props: any) => {
         return response.json();
       })
       .then((data) => {
-        setState((state: any) => ({ ...state, zoneId: data["zoneName"] }));
+        setState((state: any) => ({ ...state, zoneId: data['zoneName'] }));
       });
   };
 
   // Get date and time data once zoneId established, format and update state
   useEffect(() => {
-    const lang = "en";
-    const date = "ccc, MMM dd, yyyy";
-    const time = "HH:mm:ss";
-    const datetime = "ccc, MMM dd, yyyy | HH:mm:ss";
+    const lang = 'en';
+    const date = 'ccc, MMM dd, yyyy';
+    const time = 'HH:mm:ss';
+    const datetime = 'ccc, MMM dd, yyyy | HH:mm:ss';
     if (!isEmpty(state.zoneId)) {
       const dateInterval = setInterval(() => {
         setState((state: any) => ({
@@ -55,7 +55,7 @@ const HandleTimeDate = (props: any) => {
   // Call refresh timezone offset function on location change if zoneId not already set
   useEffect(() => {
     if (state.location.latitude && !state.zoneId) {
-      state.debug && console.log("init use effect refreshtz");
+      state.debug && console.log('init use effect refreshtz');
       refreshTzOffset();
     }
     // eslint-disable-next-line
@@ -64,7 +64,7 @@ const HandleTimeDate = (props: any) => {
   // Refresh timezone offset every 5 seconds
   useEffect(() => {
     const tzInterval = setInterval(() => {
-      state.debug && console.log("setinterval refreshtz");
+      state.debug && console.log('setinterval refreshtz');
       refreshTzOffset();
     }, 5000);
     return () => {

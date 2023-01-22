@@ -1,7 +1,7 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect, useRef, useState } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect, useRef, useState } from 'react';
 
-import { forPullKey } from "@rtirl/api";
+import { forPullKey } from '@rtirl/api';
 
 const HandleDistance = (props: any) => {
   const [state, setState] = useContext(stateContext);
@@ -21,7 +21,7 @@ const HandleDistance = (props: any) => {
 
   // Custom hook with ref for previous session ID - used in distance calculation
   const usePreviousSessionId = (value: string): string => {
-    const ref = useRef("");
+    const ref = useRef('');
     useEffect(() => {
       ref.current = value;
     });

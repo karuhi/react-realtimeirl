@@ -1,12 +1,12 @@
-import { stateContext } from "Contexts/StateContext";
-import React, { useContext } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import React, { useContext } from 'react';
 
 //@ts-ignore
-import { SvgLoader } from "react-svgmt";
+import { SvgLoader } from 'react-svgmt';
 
-import isEmpty from "Functions/isEmpty";
+import isEmpty from 'Functions/isEmpty';
 
-import "./Weather.scss";
+import './Weather.scss';
 
 //prettier-ignore
 const Weather = () => {

@@ -1,7 +1,7 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect } from 'react';
 
-import { forPullKey } from "@rtirl/api";
+import { forPullKey } from '@rtirl/api';
 
 const HandleLocation = (props: any) => {
   const [state, setState] = useContext(stateContext);

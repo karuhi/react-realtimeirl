@@ -1,13 +1,13 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect } from 'react';
 
-import { forPullKey } from "@rtirl/api";
+import { forPullKey } from '@rtirl/api';
 
 const HandleHeading = (props: any) => {
   const [state, setState] = useContext(stateContext);
 
   // Array of cardinal directions for compass use
-  let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+  let compass = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 
   // Add heading listener, update state with cardinal direction and bearing in degrees
   useEffect(() => {

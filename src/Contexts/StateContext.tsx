@@ -1,18 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
-import HandleStreamElements from "Handlers/HandleStreamElements";
-import HandleHeading from "Handlers/HandleHeading";
-import HandleDistance from "Handlers/HandleDistance";
-import HandleWeather from "Handlers/HandleWeather";
-import HandleAltitude from "Handlers/HandleAltitude";
-import HandleHeartrate from "Handlers/HandleHeartrate";
-import HandleNeighbourhood from "Handlers/HandleNeighbourhood";
-import HandleLocation from "Handlers/HandleLocation";
-import HandleSpeed from "Handlers/HandleSpeed";
-import HandleTimeDate from "Handlers/HandleTimeDate";
+import HandleStreamElements from 'Handlers/HandleStreamElements';
+import HandleHeading from 'Handlers/HandleHeading';
+import HandleDistance from 'Handlers/HandleDistance';
+import HandleWeather from 'Handlers/HandleWeather';
+import HandleAltitude from 'Handlers/HandleAltitude';
+import HandleHeartrate from 'Handlers/HandleHeartrate';
+import HandleNeighbourhood from 'Handlers/HandleNeighbourhood';
+import HandleLocation from 'Handlers/HandleLocation';
+import HandleSpeed from 'Handlers/HandleSpeed';
+import HandleTimeDate from 'Handlers/HandleTimeDate';
 
 let [pullKey, mapboxKey, mapZoom, weatherKey, timezoneKey, streamElementsKey] =
-  ["", "", "", "", "", ""];
+  ['', '', '', '', '', ''];
 
 let debug = false;
 
@@ -26,7 +26,7 @@ weatherKey = process.env.REACT_APP_OPENWEATHER_KEY || queryParams.get('weatherKe
 debug = queryParams.get('debug') ? true : false; // prettier-ignore
 streamElementsKey = process.env.REACT_APP_STREAMELEMENTS_KEY || queryParams.get('streamElementsKey') || ''; // prettier-ignore
 
-const imperial = queryParams.get("imperial");
+const imperial = queryParams.get('imperial');
 
 type Context = any;
 
@@ -43,7 +43,7 @@ const StateContextProvider = (props: any) => {
     weatherKey: weatherKey,
     streamElementsKey: streamElementsKey,
     streamElementsSubscribed: false,
-    zoneId: "",
+    zoneId: '',
     prevLocation: {
       latitude: 0,
       longitude: 0,
@@ -54,34 +54,34 @@ const StateContextProvider = (props: any) => {
     },
     geocode: {},
     locationData: {},
-    neighbourhood: "",
-    date: "",
-    time: "",
-    datetime: "",
+    neighbourhood: '',
+    date: '',
+    time: '',
+    datetime: '',
     speed: 0,
     altitude: {
       EGM96: 0,
       WGS84: 0,
     },
-    headingCardinal: "",
+    headingCardinal: '',
     headingDegrees: 0,
     heartRate: 0,
     totalDistance: 0,
-    sessionId: "",
-    imperial: imperial || "",
+    sessionId: '',
+    imperial: imperial || '',
     streamElements: {
       subscribed: false,
-      "subscriber-latest": {
-        name: "",
+      'subscriber-latest': {
+        name: '',
         amount: 0,
-        tier: "1000",
+        tier: '1000',
         message: null,
         sender: null,
         gifted: null,
       },
-      "follower-latest": { name: "" },
-      "subscriber-recent": [{ name: "", amount: 0 }],
-      "follower-recent": [{ name: "" }],
+      'follower-latest': { name: '' },
+      'subscriber-recent': [{ name: '', amount: 0 }],
+      'follower-recent': [{ name: '' }],
     },
   });
 

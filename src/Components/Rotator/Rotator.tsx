@@ -1,11 +1,11 @@
-import { stateContext } from "Contexts/StateContext";
-import React, { useContext } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import React, { useContext } from 'react';
 
-import isEmpty from "Functions/isEmpty";
+import isEmpty from 'Functions/isEmpty';
 
-import "./Rotator.scss";
+import './Rotator.scss';
 
-import Weather from "Components/Weather/Weather";
+import Weather from 'Components/Weather/Weather';
 
 //* This component rotates between display of weather/streamelements data
 //prettier-ignore

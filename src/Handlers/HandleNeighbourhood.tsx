@@ -1,8 +1,8 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect } from 'react';
 
 //@ts-ignore
-import createServiceFactory from "@mapbox/mapbox-sdk/services/geocoding";
+import createServiceFactory from '@mapbox/mapbox-sdk/services/geocoding';
 
 const HandleNeighbourhood = (props: any) => {
   const [state, setState] = useContext(stateContext);
@@ -18,23 +18,23 @@ const HandleNeighbourhood = (props: any) => {
       .then((response: { [Response: string]: any }) => {
         let context: { [index: string]: any } = {};
         for (let param of [
-          "country",
-          "region",
-          "postcode",
-          "district",
-          "place",
-          "locality",
-          "neighborhood",
-          "address",
-          "poi",
+          'country',
+          'region',
+          'postcode',
+          'district',
+          'place',
+          'locality',
+          'neighborhood',
+          'address',
+          'poi',
         ])
           context[param] = response.body!.features.find(
             (feature: { [index: string]: string }) =>
               feature.place_type.includes(param)
           );
-        context["japan"] = response.body!.features.find(
+        context['japan'] = response.body!.features.find(
           (feature: { [index: string]: string }) =>
-            feature.place_name.includes("Japan")
+            feature.place_name.includes('Japan')
         );
         //eslint-disable-next-line
         const { country, region, postcode, district, place, locality, neighborhood, address, poi, japan } = context; // prettier-ignore
