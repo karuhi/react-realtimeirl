@@ -1,17 +1,17 @@
-import { stateContext } from "Contexts/StateContext";
-import { useContext, useEffect, useState } from "react";
+import { stateContext } from 'Contexts/StateContext';
+import { useContext, useEffect, useState } from 'react';
 //@ts-ignore
-import { SvgLoader } from "react-svgmt";
+import { SvgLoader } from 'react-svgmt';
 
-import "./Metrics.scss";
+import './Metrics.scss';
 
 const queryParams: { [Value: string]: any } = new URLSearchParams(window.location.search); // prettier-ignore
-const heartrate = parseInt(queryParams.get("heartrate"));
-const altitude = parseInt(queryParams.get("altitude"));
-const speed = parseInt(queryParams.get("speed"));
-const distance = parseInt(queryParams.get("distance"));
-const heading = parseInt(queryParams.get("heading"));
-const metrics = parseInt(queryParams.get("metrics"));
+const heartrate = parseInt(queryParams.get('heartrate'));
+const altitude = parseInt(queryParams.get('altitude'));
+const speed = parseInt(queryParams.get('speed'));
+const distance = parseInt(queryParams.get('distance'));
+const heading = parseInt(queryParams.get('heading'));
+const metrics = parseInt(queryParams.get('metrics'));
 
 // prettier-ignore
 const OtherMetrics = () => {
@@ -35,11 +35,12 @@ const OtherMetrics = () => {
 
   useEffect(() => {
     const diff = state.totalDistance - pastDistance;
-    let speed = diff/timeLeft*60*60;
+    let speed = (diff/timeLeft)*60*60;
 
     // Nan か Infinityなら前の速度を出す
     if (isNaN(speed)) speed = calcSpeed;
     if (speed === Infinity) speed = calcSpeed;
+    if (speed < 0) speed = 0;
   
     setCalcSpeed(speed)
     setTimeLeft(0)
