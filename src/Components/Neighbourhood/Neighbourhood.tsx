@@ -1,14 +1,32 @@
-import { useContext } from "react";
-import { stateContext } from "Contexts/StateContext";
+import { useContext, useEffect, useState } from 'react';
+import { stateContext } from 'Contexts/StateContext';
 
-import { Transition } from "react-transition-group";
+import { Transition } from 'react-transition-group';
 
-import isEmpty from "Functions/isEmpty";
+import isEmpty from 'Functions/isEmpty';
 
-import "./Neighbourhood.scss";
+import './Neighbourhood.scss';
 
 const Neighbourhood = () => {
   const [state] = useContext(stateContext);
+
+  const [pastArray, setPastArray] = useState([]);
+  const [neighbourText, setNeighbourText] = useState('');
+
+  //TODO - 近くの名称が変わった際に、変わった部分だけアニメーションして変更するようにする
+  //NOTE - https://codepen.io/alvarotrigo/pen/ZEJgqLN
+  const animateNighbourhood = () => {
+    const neighbourhood = state.neighbourhood;
+    const neighArray = neighbourhood.split(',');
+    console.log(neighArray, pastArray);
+    setPastArray(neighArray);
+    setNeighbourText(state.neighbourhood);
+  };
+
+  useEffect(() => {
+    console.log('locate changed');
+    animateNighbourhood();
+  }, [state.neighbourhood]);
 
   return (
     <Transition
@@ -20,7 +38,7 @@ const Neighbourhood = () => {
       <div className="neighbourhood-container">
         <div className="neighbourhood">
           <hr />
-          {state.neighbourhood || "Locating..."}
+          {neighbourText || 'Locating...'}
           <hr />
         </div>
       </div>
