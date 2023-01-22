@@ -1,13 +1,13 @@
-import { stateContext } from 'Contexts/StateContext';
-import { useContext } from 'react';
+import { stateContext } from "Contexts/StateContext";
+import { useContext } from "react";
 
 const LatestTip = () => {
   const [state] = useContext(stateContext);
-  const tipLatest = { ...state.streamElements['tip-latest'] };
+  const tipLatest = { ...state.streamElements["tip-latest"] };
 
   return (
     <div className="latest-tip">
-      {state.streamElements['tip-latest'] && (
+      {state.streamElements["tip-latest"] && (
         <>
           <div className="se-heading">Latest Tip:</div>
           <div className="latest-tip-data">

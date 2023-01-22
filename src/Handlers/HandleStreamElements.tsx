@@ -1,15 +1,15 @@
-import { stateContext } from 'Contexts/StateContext';
-import { useContext, useEffect, useState } from 'react';
+import { stateContext } from "Contexts/StateContext";
+import { useContext, useEffect, useState } from "react";
 
-import axios from 'axios';
-import { io } from 'socket.io-client';
+import axios from "axios";
+import { io } from "socket.io-client";
 
-import isEmpty from 'Functions/isEmpty';
+import isEmpty from "Functions/isEmpty";
 
 const HandleStreamElements = (props: any) => {
   const [state, setState] = useContext(stateContext);
 
-  const [channel, setChannel] = useState('test');
+  const [channel, setChannel] = useState("test");
   const [incoming, setIncoming] = useState<any>({});
 
   const [latestCheer, setLatestCheer] = useState<any>({});
@@ -32,12 +32,12 @@ const HandleStreamElements = (props: any) => {
   useEffect(() => {
     if (!isEmpty(latestCheer)) {
       const update = { ...incoming };
-      update['cheer-latest'] = {
+      update["cheer-latest"] = {
         name: latestCheer.name,
         amount: latestCheer.amount,
         message: latestCheer.message,
       };
-      update['cheer-recent'].unshift({ ...latestCheer });
+      update["cheer-recent"].unshift({ ...latestCheer });
       setIncoming({ ...update });
     }
     //eslint-disable-next-line
@@ -46,12 +46,12 @@ const HandleStreamElements = (props: any) => {
   useEffect(() => {
     if (!isEmpty(latestTip)) {
       const update = { ...incoming };
-      update['tip-latest'] = {
+      update["tip-latest"] = {
         name: latestTip.name,
         amount: latestTip.amount,
         message: latestTip.message,
       };
-      update['tip-recent'].unshift({ ...latestTip });
+      update["tip-recent"].unshift({ ...latestTip });
       setIncoming({ ...update });
     }
     //eslint-disable-next-line
@@ -61,8 +61,8 @@ const HandleStreamElements = (props: any) => {
   useEffect(() => {
     if (!isEmpty(latestFollow)) {
       const update = { ...incoming };
-      update['follower-latest'] = { name: latestFollow.name };
-      update['follower-recent'].unshift({ ...latestFollow });
+      update["follower-latest"] = { name: latestFollow.name };
+      update["follower-recent"].unshift({ ...latestFollow });
       setIncoming({ ...update });
     }
     //eslint-disable-next-line
@@ -72,7 +72,7 @@ const HandleStreamElements = (props: any) => {
   useEffect(() => {
     if (!isEmpty(latestSub)) {
       const update = { ...incoming };
-      update['subscriber-latest'] = {
+      update["subscriber-latest"] = {
         amount: latestSub.amount,
         gifted: latestSub.gifted,
         message: latestSub.message,
@@ -80,7 +80,7 @@ const HandleStreamElements = (props: any) => {
         sender: latestSub.sender,
         tier: latestSub.tier,
       };
-      update['subscriber-recent'].unshift({ ...latestSub });
+      update["subscriber-recent"].unshift({ ...latestSub });
       setIncoming({ ...update });
     }
     //eslint-disable-next-line
@@ -92,7 +92,7 @@ const HandleStreamElements = (props: any) => {
 
     // helper function
     const addZeroIfNeeded = (num: number) => {
-      return num < 10 ? '0' + num : num.toString();
+      return num < 10 ? "0" + num : num.toString();
     };
 
     month = addZeroIfNeeded(month);
@@ -120,34 +120,34 @@ const HandleStreamElements = (props: any) => {
   //* Subscribe to streamelements websocket using socket.io
   const subStreamElements = async () => {
     let JWT = state.streamElementsKey;
-    const sesocket = io('https://realtime.streamelements.com', {
-      transports: ['websocket'],
+    const sesocket = io("https://realtime.streamelements.com", {
+      transports: ["websocket"],
       autoConnect: true,
     });
 
     // Socket connected
-    sesocket.on('connect', onConnect);
-    sesocket.on('connect_error', (err: any) => {
-      console.log('connection error');
+    sesocket.on("connect", onConnect);
+    sesocket.on("connect_error", (err: any) => {
+      console.log("connection error");
       console.log(err);
     });
-    sesocket.on('error', (err: any) => {
-      console.log('socket error');
+    sesocket.on("error", (err: any) => {
+      console.log("socket error");
     });
     // Socket got disconnected
-    sesocket.on('disconnect', onDisconnect);
+    sesocket.on("disconnect", onDisconnect);
     // Socket is authenticated
-    sesocket.on('authenticated', onAuthenticated);
+    sesocket.on("authenticated", onAuthenticated);
     //! SE Test events - updates live app state if debug queryparam is enabled
     state.debug &&
-      sesocket.on('event:test', (data: any) => {
-        if (data.listener === 'follower-latest') {
+      sesocket.on("event:test", (data: any) => {
+        if (data.listener === "follower-latest") {
           let currentDate = new Date();
           let timestamp = get_date_format(currentDate);
           const newFollow = { name: data.event.name, createdAt: timestamp };
           setLatestFollow({ ...newFollow });
         }
-        if (data.listener === 'subscriber-latest') {
+        if (data.listener === "subscriber-latest") {
           let currentDate = new Date();
           let timestamp = get_date_format(currentDate);
           const newSub = {
@@ -158,7 +158,7 @@ const HandleStreamElements = (props: any) => {
           };
           setLatestSub({ ...newSub });
         }
-        if (data.listener === 'cheer-latest') {
+        if (data.listener === "cheer-latest") {
           let currentDate = new Date();
           let timestamp = get_date_format(currentDate);
           const newCheer = {
@@ -169,7 +169,7 @@ const HandleStreamElements = (props: any) => {
           };
           setLatestCheer({ ...newCheer });
         }
-        if (data.listener === 'tip-latest') {
+        if (data.listener === "tip-latest") {
           let currentDate = new Date();
           let timestamp = get_date_format(currentDate);
           const newTip = {
@@ -182,14 +182,14 @@ const HandleStreamElements = (props: any) => {
         }
       });
     //! Live SE event message logic.
-    sesocket.on('event', (data: any) => {
-      if (data.listener === 'follower-latest') {
+    sesocket.on("event", (data: any) => {
+      if (data.listener === "follower-latest") {
         let currentDate = new Date();
         let timestamp = get_date_format(currentDate);
         const newFollow = { name: data.event.name, createdAt: timestamp };
         setLatestFollow({ ...newFollow });
       }
-      if (data.listener === 'subscriber-latest') {
+      if (data.listener === "subscriber-latest") {
         let currentDate = new Date();
         let timestamp = get_date_format(currentDate);
         const newSub = {
@@ -200,7 +200,7 @@ const HandleStreamElements = (props: any) => {
         };
         setLatestSub({ ...newSub });
       }
-      if (data.listener === 'cheer-latest') {
+      if (data.listener === "cheer-latest") {
         let currentDate = new Date();
         let timestamp = get_date_format(currentDate);
         const newCheer = {
@@ -211,7 +211,7 @@ const HandleStreamElements = (props: any) => {
         };
         setLatestCheer({ ...newCheer });
       }
-      if (data.listener === 'tip-latest') {
+      if (data.listener === "tip-latest") {
         let currentDate = new Date();
         let timestamp = get_date_format(currentDate);
         const newTip = {
@@ -225,9 +225,9 @@ const HandleStreamElements = (props: any) => {
     });
     // SE connect logic, run auth function on socket open
     function onConnect() {
-      state.debug && console.log('WS. INFO: Socket Opened -> STREAMELEMENTS');
-      sesocket.emit('authenticate', {
-        method: 'jwt',
+      state.debug && console.log("WS. INFO: Socket Opened -> STREAMELEMENTS");
+      sesocket.emit("authenticate", {
+        method: "jwt",
         token: JWT,
       });
     }
@@ -235,7 +235,7 @@ const HandleStreamElements = (props: any) => {
     function onDisconnect() {
       state.debug &&
         console.log(
-          'WS. RECV: <- STREAMELEMENTS: Disconnected from  websocket'
+          "WS. RECV: <- STREAMELEMENTS: Disconnected from  websocket"
         );
       // Reconnect
     }
@@ -257,7 +257,7 @@ const HandleStreamElements = (props: any) => {
   }, [state.streamElementsKey]);
 
   useEffect(() => {
-    channel !== 'test' && fetchData();
+    channel !== "test" && fetchData();
     //eslint-disable-next-line
   }, [channel]);
 
